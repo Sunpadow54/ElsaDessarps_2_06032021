@@ -4,16 +4,22 @@
 		<meta charset="utf-8" />
 
 		<title>
-			Reservia - Trouvez votre hébergement pour des vacances de rêve - simple et facile
+			Reservia - Trouvez votre hébergement pour des vacances de rêve
 		</title>
-
+		<!-- styles -->
 		<link rel="stylesheet" href="/style/style.css" />
+		<!-- fonts 'Raleway'-->
+		<link rel="preconnect" href="https://fonts.gstatic.com" />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;700&display=swap"
+			rel="stylesheet"
+		/>
 	</head>
 	<body>
-		<header>
+		<header class="main_header">
 			<!-- header top -->
-			<div>
-				<a href="">
+			<div class="top">
+				<a class="logo" href="">
 					<img src="img/logo/Reservia.svg" alt="Reservia Logo" />
 				</a>
 				<nav>
@@ -26,7 +32,7 @@
 						</li>
 					</ul>
 				</nav>
-				<a href="">S'inscrire</a>
+				<a class="suscribe" href="">S'inscrire</a>
 			</div>
 			<!-- header search & filter -->
 			<section>
@@ -44,8 +50,8 @@
 					</p>
 				</form>
 				<!-- filter -->
-				<section>
-					<h4>filtres</h4>
+				<section class="filters">
+					<h4>Filtres</h4>
 					<ul>
 						<li>
 							<button>Économique</button>
@@ -65,225 +71,236 @@
 			</section>
 		</header>
 		<main>
-            <!--  All Housings  -->
+			<!--  All Housings  -->
 			<article id="lodgings">
 				<div>
 					<header>
 						<h2>Hébergements à Marseille</h2>
 					</header>
-                    <!-- list of some housing -->
+					<!-- list of some housing -->
 					<ul>
 						<li>
 							<a href="">
-								<figure>
-									<img src="" alt="Auberge la Cannebière" />
-									<figcaption>
+								<section>
+									<div>
 										<h3>Auberge la Cannebière</h3>
 										<p>Nuit à partir de <em>25€</em></p>
 										<div></div>
-									</figcaption>
-								</figure>
+									</div>
+									<img src="" alt="Auberge la Cannebière" />
+								</section>
 							</a>
 						</li>
-                        <li>
+						<li>
 							<a href="">
-								<figure>
-									<img src="" alt="Hôtel du port" />
-									<figcaption>
+								<section>
+									<div>
 										<h3>Hôtel du port</h3>
 										<p>Nuit à partir de <em>52€</em></p>
 										<div></div>
-									</figcaption>
-								</figure>
+									</div>
+									<img src="" alt="Hôtel du port" />
+								</section>
 							</a>
 						</li>
-                        <li>
+						<li>
 							<a href="">
-								<figure>
-									<img src="" alt="Hôtel Les mouettes" />
-									<figcaption>
+								<section>
+									<div>
 										<h3>Hôtel Les mouettes</h3>
 										<p>Nuit à partir de <em>76€</em></p>
 										<div></div>
-									</figcaption>
-								</figure>
+									</div>
+									<img src="" alt="Hôtel Les mouettes" />
+								</section>
 							</a>
 						</li>
-                        <li>
+						<li>
 							<a href="">
-								<figure>
-									<img src="" alt="Hôtel de la mer" />
-									<figcaption>
+								<section>
+									<div>
 										<h3>Hôtel de la mer</h3>
 										<p>Nuit à partir de <em>46€</em></p>
 										<div></div>
-									</figcaption>
-								</figure>
+									</div>
+									<img src="" alt="Hôtel de la mer" />
+								</section>
 							</a>
 						</li>
-                        <li>
+						<li>
 							<a href="">
-								<figure>
-									<img src="" alt="Auberge Le Panier" />
-									<figcaption>
+								<section>
+									<div>
 										<h3>Auberge Le Panier</h3>
 										<p>Nuit à partir de <em>23€</em></p>
 										<div></div>
-									</figcaption>
-								</figure>
+									</div>
+									<img src="" alt="Auberge Le Panier" />
+								</section>
 							</a>
 						</li>
-                        <li>
+						<li>
 							<a href="">
-								<figure>
-									<img src="" alt="Hôtel chez Amina" />
-									<figcaption>
+								<section>
+									<div>
 										<h3>Auberge Le Panier</h3>
 										<p>Nuit à partir de <em>96€</em></p>
 										<div></div>
-									</figcaption>
-								</figure>
+									</div>
+									<img src="" alt="Hôtel chez Amina" />
+								</section>
 							</a>
 						</li>
 					</ul>
-                    <!-- load more housing -->
-                    <button>Afficher plus</button>
+					<!-- load more housing -->
+					<button>Afficher plus</button>
 				</div>
-                <!-- most popular housing -->
+				<!-- most popular housing -->
 				<aside>
 					<h2>Les plus populaires</h2>
-                    <ul>
-                        <li>
+					<ul>
+						<li>
 							<a href="">
-								<figure>
-									<img src="" alt="Hôtel le soleil du matin" />
-									<figcaption>
+								<section>
+									<div>
 										<h3>Hôtel le soleil du matin</h3>
 										<p>Nuit à partir de <em>128€</em></p>
 										<div></div>
-									</figcaption>
-								</figure>
+									</div>
+									<img
+										src=""
+										alt="Hôtel le soleil du matin"
+									/>
+								</section>
 							</a>
 						</li>
-                        <li>
+						<li>
 							<a href="">
-								<figure>
-									<img src="" alt="Au coeur de l'eau Chambres d'hôtes" />
-									<figcaption>
-										<h3>Au coeur de l'eau Chambres d'hôtes</h3>
+								<section>
+									<div>
+										<h3>
+											Au coeur de l'eau Chambres d'hôtes
+										</h3>
 										<p>Nuit à partir de <em>71€</em></p>
 										<div></div>
-									</figcaption>
-								</figure>
+									</div>
+									<img
+										src=""
+										alt="Au coeur de l'eau Chambres d'hôtes"
+									/>
+								</section>
 							</a>
 						</li>
-                        <li>
+						<li>
 							<a href="">
-								<figure>
-									<img src="" alt="Hôtel Tout bleu et Blanc" />
-									<figcaption>
+								<section>
+									<div>
 										<h3>Hôtel Tout bleu et Blanc</h3>
 										<p>Nuit à partir de <em>68€</em></p>
 										<div></div>
-									</figcaption>
-								</figure>
+									</div>
+									<img
+										src=""
+										alt="Hôtel Tout bleu et Blanc"
+									/>
+								</section>
 							</a>
 						</li>
-                    </ul>
+					</ul>
 				</aside>
 			</article>
-            <!-- All Activities -->
-            <article id="activities">
-                <header>
-                    <h2>Activités à Marseille</h2>
-                </header>
-                <ul>
-                    <li>
-                        <a href="">
-                            <figure>
-                                <img src="" alt="Vieux Port" />
-                                <figcaption>
-                                    <h3>Vieux Port</h3>
-                                </figcaption>
-                            </figure>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="">
-                            <figure>
-                                <img src="" alt="Fort de Pomègues" />
-                                <figcaption>
-                                    <h3>Fort de Pomègues</h3>
-                                </figcaption>
-                            </figure>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="">
-                            <figure>
-                                <img src="" alt="Îles du Frioul" />
-                                <figcaption>
-                                    <h3>Îles du Frioul</h3>
-                                </figcaption>
-                            </figure>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="">
-                            <figure>
-                                <img src="" alt="Parc National des Calanques" />
-                                <figcaption>
-                                    <h3>Parc National des Calanques</h3>
-                                </figcaption>
-                            </figure>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="">
-                            <figure>
-                                <img src="" alt="Notre-Dame-de-la-Garde" />
-                                <figcaption>
-                                    <h3>Notre-Dame-de-la-Garde</h3>
-                                </figcaption>
-                            </figure>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="">
-                            <figure>
-                                <img src="" alt="Parc Longchamp" />
-                                <figcaption>
-                                    <h3>Parc Longchamp</h3>
-                                </figcaption>
-                            </figure>
-                        </a>
-                    </li>
-                </ul>
-            </article>
+			<!-- All Activities -->
+			<article id="activities">
+				<header>
+					<h2>Activités à Marseille</h2>
+				</header>
+				<ul>
+					<li>
+						<a href="">
+							<figure>
+								<img src="" alt="Vieux Port" />
+								<figcaption>
+									<h3>Vieux Port</h3>
+								</figcaption>
+							</figure>
+						</a>
+					</li>
+					<li>
+						<a href="">
+							<figure>
+								<img src="" alt="Fort de Pomègues" />
+								<figcaption>
+									<h3>Fort de Pomègues</h3>
+								</figcaption>
+							</figure>
+						</a>
+					</li>
+					<li>
+						<a href="">
+							<figure>
+								<img src="" alt="Îles du Frioul" />
+								<figcaption>
+									<h3>Îles du Frioul</h3>
+								</figcaption>
+							</figure>
+						</a>
+					</li>
+					<li>
+						<a href="">
+							<figure>
+								<img src="" alt="Parc National des Calanques" />
+								<figcaption>
+									<h3>Parc National des Calanques</h3>
+								</figcaption>
+							</figure>
+						</a>
+					</li>
+					<li>
+						<a href="">
+							<figure>
+								<img src="" alt="Notre-Dame-de-la-Garde" />
+								<figcaption>
+									<h3>Notre-Dame-de-la-Garde</h3>
+								</figcaption>
+							</figure>
+						</a>
+					</li>
+					<li>
+						<a href="">
+							<figure>
+								<img src="" alt="Parc Longchamp" />
+								<figcaption>
+									<h3>Parc Longchamp</h3>
+								</figcaption>
+							</figure>
+						</a>
+					</li>
+				</ul>
+			</article>
 		</main>
-        <footer>
-            <section>
-                <h4>À propos</h4>
-                <ul>
-                    <li>Fonctionnement du site</li>
-                    <li>Conditions générales de vente</li>
-                    <li>Données et confidentialité</li>
-                </ul>
-            </section>
-            <section>
-                <h4>Nos hébergements</h4>
-                <ul>
-                    <li>Charte qualité</li>
-                    <li>Soumettre votre hôtel</li>
-                </ul>
-            </section>
-            <section>
-                <h4>Assistance</h4>
-                <ul>
-                    <li>Centre d'aide</li>
-                    <li>Nous contacter</li>
-                </ul>
-            </section>
-        </footer>
+		<footer>
+			<section>
+				<h4>À propos</h4>
+				<ul>
+					<li>Fonctionnement du site</li>
+					<li>Conditions générales de vente</li>
+					<li>Données et confidentialité</li>
+				</ul>
+			</section>
+			<section>
+				<h4>Nos hébergements</h4>
+				<ul>
+					<li>Charte qualité</li>
+					<li>Soumettre votre hôtel</li>
+				</ul>
+			</section>
+			<section>
+				<h4>Assistance</h4>
+				<ul>
+					<li>Centre d'aide</li>
+					<li>Nous contacter</li>
+				</ul>
+			</section>
+		</footer>
 	</body>
 </html>
