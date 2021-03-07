@@ -10,10 +10,12 @@ img {
 :root {
 	--primary_color: #0065fc;
 	--secondary_color: #deebff;
-	--third_color: #f2f2f2;
-	--border_color: #d9d9d9;
+	--third_color: #F2F2F2;
+	--border_color: #d9d9d9; /* third color is too light */
 }
+
 /* reset */
+
 * {
 	color: black;
 	font-family: Raleway, serif;
@@ -38,7 +40,9 @@ button {
 	border: none;
 	cursor: pointer;
 }
+
 /* font size*/
+
 h1,
 h2 {
 	font-size: 1.4rem;
@@ -56,7 +60,9 @@ h4,
 }
 
 /* ------------HEADER */
+
 /* ---- Top Header */
+
 .header_top {
 	display: flex;
 	justify-content: space-between;
@@ -75,7 +81,9 @@ h4,
 .header_top nav ul li {
 	padding: 3.5rem 2rem;
 }
+
 /* Nav */
+
 .header_top nav ul li {
 	border-top: 2px solid transparent; /* to fix the :hover border */
 }
@@ -89,8 +97,11 @@ h4,
 	color: var(--primary_color);
 	font-weight: 700;
 }
+
 /* ---- Search & Filters */
+
 /* Search */
+
 .search {
 	display: flex;
 }
@@ -112,7 +123,9 @@ h4,
 	color: white;
 	border-radius: 0 15px 15px 0;
 }
+
 /* Filters */
+
 .filters {
 	display: flex;
 	gap: 1rem;
@@ -164,7 +177,9 @@ h4,
 	border-radius: 70px;
 	border: 2px solid var(--border_color);
 }
+
 /* --- info */
+
 .info::before {
 	content: "\f129";
 	display: inline-block;
@@ -173,8 +188,8 @@ h4,
 	font-family: "Font Awesome 5 Free";
 	font-weight: 900;
 	font-size: 0.7rem;
-	color: var(--primary_color);
 	text-rendering: auto;
+	color: var(--primary_color);
 	border: 1px solid var(--border_color);
 	margin-right: 1rem;
 	width: 23px;
@@ -184,11 +199,16 @@ h4,
 }
 
 /* ------------MAIN */
+
 /* ---- Lodgins */
+
 #lodgings {
     display: flex;
     flex-wrap: wrap-reverse;
     gap:2rem;
+}
+h2 {
+	margin-top:0;
 }
 .main_lodgings,
 .popular_lodgings {
@@ -212,28 +232,61 @@ h4,
     border-radius: 25px;
     padding:8px;
 }
+.lodging_card div h3, 
+.popular_card div h3 {
+    margin: 0;
+}
+
 /* Main Lodgings */
+
 /* Main Lodgings Cards */
+
 .lodging_card {
     display: flex;
-    flex-direction: column-reverse;
+	flex-direction: column-reverse;
 }
 .lodging_card div {
-    padding:1rem;
+    padding:1rem; 
 }
-.lodging_card div h3,
-.lodging_card div p {
-    margin:0;
+.lodging_card div h3 {
+    margin-top:0;
 }
 .lodging_card img {
     border-radius:  20px 20px 0 0;
     height: 160px;
 }
-/* Popular Lodgings*/
+
+/* button see more */
+
+.see_more {
+	padding:0;
+	font-size: 1.1rem;
+	font-weight: bold;
+	padding-top: 2.5rem;
+}
+
+/* Popular Lodgings */
+
 .popular_lodgings {
     max-width: 460px;
     display: flex;
     flex-direction: column;
+}
+.popular_lodgings h2 {
+	display: flex;
+}
+
+/* Popular Icon */
+
+.popular_lodgings h2::after {
+	content: "\f201";
+	display: block;
+	font-style: normal;
+	font-variant: normal;
+	font-family: "Font Awesome 5 Free";
+	font-weight: 900;
+	text-rendering: auto;
+	margin-left:auto;
 }
 .popular_lodgings ul {
     display: flex;
@@ -249,16 +302,20 @@ h4,
     height: 193px;
 }
 .popular_card div {
-    padding :1rem 1.5rem;
+	display: flex;
+	flex-direction: column;
+    padding: 1rem 1.5rem;
 }
-.popular_card div h3 {
-    margin-top: 0;
+.popular_card div span {
+	margin-top: auto;
 }
 .popular_card img {
     border-radius:  20px 0 0 20px;
     width: 170px;
 }
+
 /* Stars */
+
 .full {
 	color: var(--primary_color);
 }
