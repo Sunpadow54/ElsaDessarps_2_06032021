@@ -3,6 +3,8 @@ img {
     display: block;
 	object-fit: cover;
 	object-position: center center;
+	max-width: 100%;
+	max-height: 100%;
 }
 /* Fin test images */
 
@@ -12,6 +14,7 @@ img {
 	--secondary_color: #deebff;
 	--third_color: #F2F2F2;
 	--border_color: #d9d9d9; /* third color is too light */
+	--gutters: 0 3.25rem 0 3.25rem;
 }
 
 /* reset */
@@ -20,9 +23,8 @@ img {
 	color: black;
 	font-family: Raleway, serif;
 }
-body {
-	margin: 0 3.25rem 0 3.25rem;
-}
+
+
 li,
 ul,
 a,
@@ -62,7 +64,9 @@ h4,
 /* ------------HEADER */
 
 /* ---- Top Header */
-
+.main_header {
+	margin: var(--gutters);
+}
 .header_top {
 	display: flex;
 	/* justify-content: space-between; */
@@ -201,6 +205,10 @@ h4,
 
 /* ------------MAIN */
 
+main {
+	margin: var(--gutters);
+}
+
 /* ---- Lodgins */
 
 #lodgings {
@@ -208,7 +216,8 @@ h4,
     flex-wrap: wrap-reverse;
     gap:2rem;
 }
-h2 {
+.main_lodgings header h2,
+.popular_lodgings h2 {
 	margin-top:0;
 }
 .main_lodgings,
@@ -227,8 +236,6 @@ h2 {
     grid-auto-rows: auto;
     gap: 2rem;
 }
-
-
 .main_lodgings ul li,
 .popular_lodgings ul li {
     background-color: white;
@@ -324,4 +331,54 @@ h2 {
 }
 .empty {
 	color: var(--third_color);
+}
+
+/* ---- Activities */
+
+.activities_list {
+	display: grid;
+	grid-template-columns: repeat(4, minmax(250px,1fr));
+	column-gap: 3%;
+	grid-template-rows: repeat(2, 20rem);
+}
+/* 1 & 4 ...activities */
+.activities_list li:nth-child(3n+1) {
+	grid-row: 1 / 3;
+}
+/* 2 & 5 ...activities*/
+.activities_list li:nth-child(3n+2) {
+	grid-row: 1 / 2;
+}
+/* 3 & 6 ...activities */
+.activities_list li:nth-child(3n+3) {
+	grid-row: 2 / 3;
+}
+/* 3rth activity */
+.activities_list li:nth-child(3) {
+	margin-top: 4rem;
+}
+/* 5th activity */
+.activities_list li:nth-child(5) {
+	margin-bottom: 4rem;
+}
+.activities_list li a {
+	height: 100%;
+}
+/* activity card */
+.activities_card  {
+ 	display: flex;
+	flex-direction: column;
+	border-radius:25px;
+	overflow: hidden;
+	height: 100%;
+	box-shadow: 0px 2px 8px 3px rgba(0,0,0,0.08)
+}
+.activities_card img {
+	min-height:0; /* to fix the auto min-height with flex */
+	min-width:0; /* to fix the auto min-width with flex */
+	flex: 1;
+}
+.activities_card figcaption h3 {
+	margin:0;
+	padding:2rem 1rem;
 }
