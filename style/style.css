@@ -1,20 +1,10 @@
-/* Test images */
-img {
-    display: block;
-	object-fit: cover;
-	object-position: center center;
-	max-width: 100%;
-	max-height: 100%;
-}
-/* Fin test images */
-
-
 :root {
 	--primary_color: #0065fc;
 	--secondary_color: #deebff;
 	--third_color: #F2F2F2;
-	--border_color: #d9d9d9; /* third color is too light */
-	--gutters: 0 3.25rem 0 3.25rem;
+	--fourth_color: #d9d9d9; /* third color is too light */
+	/* --gutters: 0 3.25rem 0 3.25rem; */
+	--gutters: 0 5% 0 5%;
 }
 
 /* reset */
@@ -23,7 +13,9 @@ img {
 	color: black;
 	font-family: Raleway, serif;
 }
-
+body {
+	margin: 0;
+}
 
 li,
 ul,
@@ -61,23 +53,35 @@ h4,
 	font-size: 1rem;
 }
 
+/* all imgs */
+
+img {
+    display: block;
+	object-fit: cover;
+	object-position: center center;
+	max-width: 100%;
+	max-height: 100%;
+    min-height:0; /* to fix the auto min-height with flex */
+	min-width:0; /* to fix the auto min-width with flex */
+}
+
 /* ------------HEADER */
 
 /* ---- Top Header */
+
 .main_header {
 	margin: var(--gutters);
 }
 .header_top {
 	display: flex;
-	/* justify-content: space-between; */
+    flex-wrap: wrap;
 	align-items: center;
 }
 .logo {
-	/* flex-grow: 1; */
-	margin-right: auto;
+	margin-right: auto; /* push the logo on the left side with flex */
 }
 .logo img {
-    width: initial;
+ 	max-width: none;
 }
 .header_top nav ul {
 	display: flex;
@@ -123,6 +127,9 @@ h4,
 .search input {
 	border: 1px solid var(--third_color);
 }
+.search input:focus {
+	outline:none;
+}
 .search button {
 	background-color: var(--primary_color);
 	color: white;
@@ -137,14 +144,16 @@ h4,
 }
 .filters h4 {
 	margin: 0;
-	line-height: 50px;
+	line-height: 3.125rem;
 }
 .filters ul {
 	display: flex;
 	flex-wrap: wrap;
 	gap: 1rem;
 }
+
 /* Icons filter */
+
 .filters ul li {
 	position: relative; /* in order to put the icon over the border of the button */
 }
@@ -173,16 +182,26 @@ h4,
 	text-rendering: auto;
 	background-color: var(--secondary_color);
 	border-radius: 50%;
-	width: 50px;
-	line-height: 50px;
+	width: 3.125rem;
+	line-height: 3.125rem;
 }
 .filters ul li button {
-	height: 50px;
+	height: 3.125rem;
 	padding: 0 1.2rem 0 3.5rem;
 	border-radius: 70px;
-	border: 2px solid var(--border_color);
+	border: 2px solid var(--fourth_color);
 }
-
+.filters ul li button:hover{
+	background-color: var(--primary_color);
+	border-color: var(--primary_color);
+	color:white;
+	transition: all 0.2s ease-out;
+}
+.filters ul li button:hover::before {
+	background-color: var(--primary_color);
+	color:var(--secondary_color);
+	transition: all 0.2s ease-out;
+}
 /* --- info */
 
 .info::before {
@@ -195,10 +214,10 @@ h4,
 	font-size: 0.7rem;
 	text-rendering: auto;
 	color: var(--primary_color);
-	border: 1px solid var(--border_color);
+	border: 1px solid var(--fourth_color);
 	margin-right: 0.5rem;
-	width: 23px;
-	line-height: 23px;
+	width: 1.438rem;
+	line-height: 1.438rem;
 	border-radius: 50%;
 	text-align: center;
 }
@@ -226,21 +245,16 @@ main {
     border-radius: 25px;
     padding: 2.5rem;
 }
-.main_lodgings {
-	flex-grow: 2;
-}
-.main_lodgings ul {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(329px, 1fr));
-/*     grid-auto-rows: 267px; */
-    grid-auto-rows: auto;
-    gap: 2rem;
-}
 .main_lodgings ul li,
 .popular_lodgings ul li {
     background-color: white;
     border-radius: 25px;
     padding:8px;
+	box-shadow: 0px 2px 8px 3px rgba(0,0,0,0.08);
+}
+.main_lodgings ul li:hover,
+.popular_lodgings ul li:hover {
+	box-shadow: 0px 2px 8px 3px rgba(0,0,0,0.15);
 }
 .lodging_card div h3, 
 .popular_card div h3 {
@@ -249,7 +263,17 @@ main {
 
 /* Main Lodgings */
 
-/* Main Lodgings Cards */
+.main_lodgings {
+	flex: 3;
+}
+.main_lodgings ul {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    grid-auto-rows: auto;
+    gap: 2rem;
+}
+
+/* Lodgings Cards */
 
 .lodging_card {
     display: flex;
@@ -263,7 +287,7 @@ main {
 }
 .lodging_card img {
     border-radius:  20px 20px 0 0;
-    height: 160px;
+    height: 10rem;
 }
 
 /* button see more */
@@ -275,15 +299,22 @@ main {
 	padding-top: 2.5rem;
 }
 
-/* Popular Lodgings */
+/* Popular Lodgings aside */
 
 .popular_lodgings {
-    max-width: 460px;
+	flex:1;
+    min-width: 28.75rem;
     display: flex;
     flex-direction: column;
 }
 .popular_lodgings h2 {
 	display: flex;
+}
+
+.popular_lodgings ul {
+    display: flex;
+    flex-direction: column;
+    gap:2rem;
 }
 
 /* Popular Icon */
@@ -298,30 +329,29 @@ main {
 	text-rendering: auto;
 	margin-left:auto;
 }
-.popular_lodgings ul {
-    display: flex;
-    flex-grow: 1;
-    flex-direction: column;
-    gap:2rem;
-}
+
+/* Popular Cards */
+
 .popular_card {
     display: flex;
     flex-direction: row-reverse;
-    justify-content: flex-end; /* end because of the row-reverse */
-/*     max-width: 460px; */
-    height: 193px;
+    justify-content: flex-end; /* "end" because of the row-reverse */
+    height: 12.063rem;
 }
 .popular_card div {
 	display: flex;
 	flex-direction: column;
     padding: 1rem 1.5rem;
+	flex:1;
 }
 .popular_card div span {
 	margin-top: auto;
 }
 .popular_card img {
     border-radius:  20px 0 0 20px;
-	width: 170px;
+	min-height:0; /* to fix the auto min-height with flex */
+	min-width:0;
+	flex: 1;
 }
 
 /* Stars */
@@ -330,14 +360,17 @@ main {
 	color: var(--primary_color);
 }
 .empty {
-	color: var(--third_color);
+	color: var(--fourth_color);
 }
 
 /* ---- Activities */
 
+#activities {
+	padding: 2rem 0;
+}
 .activities_list {
 	display: grid;
-	grid-template-columns: repeat(4, minmax(250px,1fr));
+	grid-template-columns: repeat(4, minmax(15.625rem,1fr));
 	column-gap: 3%;
 	grid-template-rows: repeat(2, 20rem);
 }
@@ -364,14 +397,20 @@ main {
 .activities_list li a {
 	height: 100%;
 }
+
 /* activity card */
+
 .activities_card  {
  	display: flex;
 	flex-direction: column;
 	border-radius:25px;
 	overflow: hidden;
 	height: 100%;
-	box-shadow: 0px 2px 8px 3px rgba(0,0,0,0.08)
+	box-shadow: 0px 2px 8px 3px rgba(0,0,0,0.08);
+	transition: all 0.2s ease-out;
+}
+.activities_card:hover {
+	transform: scale(1.05);
 }
 .activities_card img {
 	min-height:0; /* to fix the auto min-height with flex */
@@ -382,3 +421,30 @@ main {
 	margin:0;
 	padding:2rem 1rem;
 }
+
+/* ------------ FOOTER*/
+
+footer {
+	background-color: var(--third_color);
+	display: flex;
+	justify-content: space-between;
+	padding: var(--gutters);
+}
+/* ---- Footer sections */
+
+footer section {
+	padding: 2rem 0;
+	width: 33%;
+}
+footer section ul li {
+	margin: 1rem 0;
+}
+
+
+/*test media queries */
+@media screen and (max-width: 400px) {
+    body {
+        background-color: red;
+    }
+}
+/*fin test media queries */
