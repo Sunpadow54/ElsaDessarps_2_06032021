@@ -3,7 +3,7 @@
 	--secondary_color: #deebff;
 	--third_color: #f2f2f2;
 	--fourth_color: #d9d9d9; /* third color is too light */
-	--gutters: 0 5% 0 5%;
+	--gutters: 0 10% 0 10%;
 }
 
 /* reset */
@@ -36,10 +36,6 @@ button {
 
 /* font size*/
 
-h1,
-h2 {
-	/* font-size: 1.4rem; */
-}
 .search span,
 .search input,
 .search button,
@@ -67,10 +63,10 @@ img {
 /* ------------ HEADER */
 
 .main_header {
-    height: 110px;
+    height: 130px;
+    background-color: rebeccapurple;
 	margin: var(--gutters);
     display: flex;
-	flex-wrap: wrap;
 }
 .logo,
 .suscribe,
@@ -118,7 +114,9 @@ img {
 .search_filter {
     margin: var(--gutters);
 }
+
 /* -- Search */
+
 form {
     display: inline-block;
 }
@@ -257,7 +255,7 @@ form {
 .popular_lodgings ul li {
 	background-color: white;
 	border-radius: 25px;
-	padding: 8px;
+	padding: 0.43rem;
 	box-shadow: 0px 2px 8px 3px rgba(0, 0, 0, 0.08);
 }
 .main_lodgings ul li:hover,
@@ -449,4 +447,120 @@ footer section ul li {
 }
 footer section ul li a:hover {
     color: var(--primary_color);
+}
+
+
+
+/* ------------------ MEDIA QUERY */
+
+/* -------------- MOBILE */
+
+@media screen and (max-width: 767px) {
+    :root {
+        --gutters: 0 0 0 0;
+    }
+
+    /* font size - mobile */
+    h1,
+    h2 {
+        font-size: 1.4rem;
+    }
+    .filters ul li button {
+        font-size: 1rem;
+    }
+    /* ------------ HEADER - mobile  */
+
+    .main_header {
+        height: 135px;
+        flex-wrap: wrap;
+    }
+    /* logo Reservia - mobile */
+
+    .logo {
+        padding:1rem;
+    }
+
+    /* Navigation - mobile */
+
+    .main_header nav {
+        order:3;
+        width: 100%;
+    }
+    .suscribe {
+        width: auto;
+        order:2;
+        padding:1rem;
+    }
+    .main_header nav ul li {
+        width: 100%;
+    }
+    .main_header nav ul li:first-child {
+        border-bottom: 2px solid var(--primary_color);
+    }
+    .main_header nav ul li:first-child a {
+        color: var(--primary_color);
+    }
+
+/* ------------ MAIN - mobile  */
+
+/* ---- SECTION Search & Filters  - mobile  */
+
+    .search_filter {
+        margin: 0 1rem 0 1rem;
+    }
+
+    /* search - mobile*/
+
+    .search input {
+        width: 100%;
+    }
+    .search button {
+        font-size: 0; /* make the txt "recherche" disapear */
+        overflow: hidden;
+        color: transparent;
+        border-radius: 15px;
+    }
+    .search button:after {
+        content: "\f002";
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 1rem;
+        font-style: normal;
+        font-variant: normal;
+        font-family: "Font Awesome 5 Free";
+        font-weight: 900;
+        text-rendering: auto;
+        color: white;
+    }
+
+    /* -- Filters - mobile */
+
+    .filters {
+        flex-direction: column;
+    }
+
+    /* ---- ARTICLE Lodgins - mobile */
+
+    .main_lodgings header h2,
+    .popular_lodgings h2 {
+        margin-bottom: 2rem;
+    }
+    .main_lodgings,
+    .popular_lodgings {
+        padding:  2.5rem 1rem;
+        border-radius: 0;
+    }
+    /* -- Aside Popular lodgings - mobile */
+    .popular_card div {
+        font-size: 14px;
+        padding:1rem;
+    }
+    
+    /* ARTICLE Activities - mobile*/
+
+    .activities_list {
+        display: flex;
+        flex-direction: column;
+    } 
 }
