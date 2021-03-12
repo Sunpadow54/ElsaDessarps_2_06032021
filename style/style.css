@@ -3,7 +3,7 @@
 	--secondary_color: #deebff;
 	--third_color: #f2f2f2;
 	--fourth_color: #d9d9d9; /* third color is too light */
-	--gutters: 0 10% 0 10%;
+	/* --gutters: 0 0 0 0; */
 }
 
 /* reset */
@@ -13,7 +13,7 @@
 	font-family: Raleway, serif;
 }
 body {
-	margin: 0;
+    margin:0;
 }
 
 li,
@@ -33,19 +33,26 @@ button {
 	border: none;
 	cursor: pointer;
 }
+em {
+	font-style: normal;
+}
 
 /* font size*/
+h1,
+h2 {
+	font-size: 1.35rem;
+}
 
 .search span,
 .search input,
 .search button,
 h4,
 .filters ul li button {
-    font-size: 1.1rem;
+	font-size: 1.1rem;
 	font-weight: 700;
 }
 .info {
- 	font-size: 1rem;
+	font-size: 1rem;
 }
 
 /* all imgs */
@@ -53,27 +60,35 @@ h4,
 img {
 	display: block;
 	object-fit: cover;
-	object-position: center center;
+	object-position: center auto;
 	max-width: 100%;
 	max-height: 100%;
-	min-height: 0; /* to fix the auto min-height with flex */
+	/*min-height: 0; /* to fix the auto min-height with flex */ /*
 	min-width: 0; /* to fix the auto min-width with flex */
+}
+
+/* size and gutters for all page */
+
+.main_header,
+main,
+.footer_wraper {
+    margin: auto;
+    max-width: 1440px;
+    padding:0 3.5rem;
 }
 
 /* ------------ HEADER */
 
 .main_header {
-    height: 130px;
-    background-color: rebeccapurple;
-	margin: var(--gutters);
-    display: flex;
+	height: 115px;
+	display: flex;
 }
 .logo,
 .suscribe,
 .main_header nav ul li {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
 
 /* logo Reservia */
@@ -82,17 +97,17 @@ img {
 	margin-right: auto; /* push the logo on the left side with flex */
 }
 .logo img {
-	max-width: none;
+	max-width: none; /* not resizable */
 }
 
 /* Navigation */
 
 .main_header nav ul {
-    height: 100%;
+	height: 100%;
 	display: flex;
 }
 .main_header nav ul li {
-    width: 160px;
+	width: 162px;
 	border-top: 2px solid transparent; /* to fix the :hover border */
 }
 .main_header nav ul li:hover {
@@ -102,41 +117,60 @@ img {
 	color: var(--primary_color);
 }
 .suscribe {
-    width: 110px;
+    padding: 1.25rem;
 	color: var(--primary_color);
 	font-weight: 700;
 }
 
 /* ------------ MAIN */
 
-/* ---- SECTION Search & Filters */
+main {
+display: flex;
+	flex-direction: column;
+	gap: 2.5rem;
+}
+h2 {
+    margin : 1.563rem 0;
+}
+/* ---- ARTICLE Search & Filters */
 
 .search_filter {
-    margin: var(--gutters);
+	display: flex;
+	flex-direction: column;
+    /* padding:1rem 0; */
+    gap: 1.5rem;
+}
+.search_filter h1 {
+    margin: 0.5rem 0;
+}
+.search_filter p {
+    margin: 0;
 }
 
-/* -- Search */
+/* -- Search Form */
 
 form {
-    display: inline-block;
+	align-self: flex-start;
+    height: 3rem;
 }
 .search {
 	display: flex;
-    border-radius: 15px;
-    overflow: hidden;
-}
-.search > * {
-	padding: 0.8rem 1.2rem;
+    height: 100%;
+	border-radius: 16px;
+	overflow: hidden;
+    border: 1px solid var(--third_color);
 }
 .search span {
 	display: flex;
 	justify-content: center;
 	align-items: center;
+    width: 3.125rem;
 	background-color: var(--third_color);
-	/* border-radius: 15px 0 0 15px; */
 }
 .search input {
-	border: 1px solid var(--third_color);
+    border:none;
+    padding: 0 1rem;
+    width: 14.5rem;
 }
 .search input:focus {
 	outline: none;
@@ -144,30 +178,70 @@ form {
 .search button {
 	background-color: var(--primary_color);
 	color: white;
-	/* border-radius: 0 15px 15px 0; */
+    padding: 0 1rem;
+}
+.search button:hover {
+    opacity: 0.8;
 }
 
-/* -- Filters */
+/* -- Filters Section*/
 
 .filters {
 	display: flex;
-	gap: 1rem;
+	gap: 2rem;
+    padding: 0.5rem;
 }
 .filters h4 {
-	margin: 0;
+    margin:0;
 	line-height: 3.125rem;
 }
 .filters ul {
 	display: flex;
 	flex-wrap: wrap;
-	gap: 1rem;
+    align-self: center;
+	gap: 2rem;
 }
-
-/* Icons filter */
-
 .filters ul li {
 	position: relative; /* in order to put the icon over the border of the button */
 }
+
+.filters ul li button {
+	height: 3.125rem;
+	padding: 0 1.2rem 0 3.5rem; /* right and left */
+	border-radius: 70px;
+	border: 2px solid var(--fourth_color);
+}
+/* on hover */
+.filters ul li button:hover {
+	background-color: var(--primary_color);
+	border-color: var(--primary_color);
+	color: white;
+	transition: all 0.2s ease-out;
+}
+.filters ul li button:hover::before {
+	background-color: var(--primary_color);
+	color: var(--secondary_color);
+	transition: all 0.2s ease-out;
+}
+
+/* -- info */
+
+.info {
+	display: flex;
+	align-items: center;
+	gap: 0.8rem;
+}
+.info::before {
+	content: "\f129";
+	font-size: 0.7rem;
+	color: var(--primary_color);
+	border: 1px solid var(--fourth_color);
+	width: 1.438rem;
+	height: 1.438rem;
+}
+
+/* Icons filters and info */
+
 .economic::before {
 	content: "\f53a";
 }
@@ -180,57 +254,26 @@ form {
 .animal_allowed::before {
 	content: "\f6d3";
 }
+.filters ul li button::before,
+.info::before {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-family: "Font Awesome 5 Free";
+	font-style: normal; /* fontawesome recommendation */
+	font-variant: normal; /* fontawesome recommendation */
+	text-rendering: auto; /* fontawesome recommendation */
+	font-weight: 900;
+	border-radius: 50%;
+}
 .filters ul li button::before {
 	position: absolute; /* in order to put the icon over the border of the button */
 	left: 0;
 	top: 0;
-	display: inline-block;
-	font-style: normal;
-	font-variant: normal;
-	font-family: "Font Awesome 5 Free";
-	font-weight: 900;
-	color: var(--primary_color);
-	text-rendering: auto;
-	background-color: var(--secondary_color);
-	border-radius: 50%;
 	width: 3.125rem;
-	line-height: 3.125rem;
-}
-.filters ul li button {
 	height: 3.125rem;
-	padding: 0 1.2rem 0 3.5rem;
-	border-radius: 70px;
-	border: 2px solid var(--fourth_color);
-}
-.filters ul li button:hover {
-	background-color: var(--primary_color);
-	border-color: var(--primary_color);
-	color: white;
-	transition: all 0.2s ease-out;
-}
-.filters ul li button:hover::before {
-	background-color: var(--primary_color);
-	color: var(--secondary_color);
-	transition: all 0.2s ease-out;
-}
-/* -- info */
-
-.info::before {
-	content: "\f129";
-	display: inline-block;
-	font-style: normal;
-	font-variant: normal;
-	font-family: "Font Awesome 5 Free";
-	font-weight: 900;
-	font-size: 0.7rem;
-	text-rendering: auto;
 	color: var(--primary_color);
-	border: 1px solid var(--fourth_color);
-	margin-right: 0.5rem;
-	width: 1.438rem;
-	line-height: 1.438rem;
-	border-radius: 50%;
-	text-align: center;
+	background-color: var(--secondary_color);
 }
 
 /* ---- ARTICLE Lodgins */
@@ -239,7 +282,6 @@ form {
 	display: flex;
 	flex-wrap: wrap-reverse;
 	gap: 2rem;
-    margin: var(--gutters);
 }
 .main_lodgings header h2,
 .popular_lodgings h2 {
@@ -248,14 +290,14 @@ form {
 .main_lodgings,
 .popular_lodgings {
 	background-color: var(--third_color);
-	border-radius: 25px;
+	border-radius: 20px;
 	padding: 2.5rem;
 }
 .main_lodgings ul li,
 .popular_lodgings ul li {
 	background-color: white;
-	border-radius: 25px;
-	padding: 0.43rem;
+	border-radius: 20px;
+	padding: 0.3rem;
 	box-shadow: 0px 2px 8px 3px rgba(0, 0, 0, 0.08);
 }
 .main_lodgings ul li:hover,
@@ -264,19 +306,39 @@ form {
 }
 .lodging_card div h3,
 .popular_card div h3 {
+    font-size: 1rem;
 	margin: 0;
+}
+.lodging_card div,
+.popular_card div {
+    padding:0.6rem;
+}
+.lodging_card div p,
+.popular_card div p {
+    font-size: 0.95rem;
+	margin: 0.2rem 0;
+}
+.lodging_card div span,
+.popular_card div span {
+    font-size: 0.8rem;;
 }
 
 /* -- Main Lodgings */
 
 .main_lodgings {
 	flex: 3;
+    min-width: 50%;
 }
 .main_lodgings ul {
-	display: grid;
-	grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-	grid-auto-rows: auto;
+ 	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+	grid-auto-rows: 12.7rem;
 	gap: 2rem;
+}
+.main_lodgings ul li a{
+    border-radius: 17px;
+    overflow: hidden;
+    height: 100%;
 }
 
 /* - Lodgings Cards */
@@ -284,16 +346,19 @@ form {
 .lodging_card {
 	display: flex;
 	flex-direction: column-reverse;
+    height: 100%;
 }
 .lodging_card div {
-	padding: 1rem;
+    height:5rem;
+    flex:1;
 }
 .lodging_card div h3 {
 	margin-top: 0;
 }
 .lodging_card img {
-	border-radius: 20px 20px 0 0;
-	height: 10rem;
+    min-height: 0; /* to fix the auto min-height with flex */
+	min-width: 0; /* to fix the auto min-width with flex */
+	flex: 2;
 }
 
 /* button see more */
@@ -304,12 +369,13 @@ form {
 	font-weight: bold;
 	padding-top: 2.5rem;
 }
+.see_more:hover {
+	color: var(--primary_color);
+}
 
 /* -- Aside Popular lodgings */
 
 .popular_lodgings {
-	flex: 1;
-	min-width: 18rem;
 	display: flex;
 	flex-direction: column;
 }
@@ -321,6 +387,7 @@ form {
 	display: flex;
 	flex-direction: column;
 	gap: 2rem;
+    width: 21rem;
 }
 
 /* Popular Icon */
@@ -342,20 +409,19 @@ form {
 	display: flex;
 	flex-direction: row-reverse;
 	justify-content: flex-end; /* "end" because of the row-reverse */
-	height: 12.063rem;
+    height: 9rem;
 }
 .popular_card div {
 	display: flex;
 	flex-direction: column;
-	padding: 1rem 1.5rem;
-	flex: 1;
 }
 .popular_card div span {
 	margin-top: auto;
 }
 .popular_card img {
 	border-radius: 20px 0 0 20px;
-	flex: 1;
+	/* flex: 1; */
+    width: 8rem;
 }
 
 /* Stars */
@@ -369,15 +435,11 @@ form {
 
 /* ---- ARTICLE Activities */
 
-#activities {
-    margin: var(--gutters);
-	padding: 2rem 0;
-}
 .activities_list {
 	display: grid;
-	grid-template-columns: repeat(4, minmax(15.625rem, 1fr));
-	column-gap: 3%;
-	grid-template-rows: repeat(2, 20rem);
+	grid-template-columns: repeat(4, minmax(15rem, 1fr));
+	column-gap: 2.5rem;
+	grid-template-rows: repeat(2, 14.75rem);
 }
 /* 1 & 4 ...activities */
 .activities_list li:nth-child(3n + 1) {
@@ -393,11 +455,11 @@ form {
 }
 /* 3rth activity */
 .activities_list li:nth-child(3) {
-	margin-top: 4rem;
+	margin-top: 2.5rem; /* row gap  */
 }
 /* 5th activity */
 .activities_list li:nth-child(5) {
-	margin-bottom: 4rem;
+	margin-bottom: 2.5rem; /* row gap */
 }
 .activities_list li a {
 	height: 100%;
@@ -424,143 +486,246 @@ form {
 }
 .activities_card figcaption h3 {
 	margin: 0;
-	padding: 2rem 1rem;
+    font-size: 1rem;
+	padding: 1.16rem 1rem;
 }
 
 /* ------------ FOOTER */
 
 footer {
 	background-color: var(--third_color);
+}
+.footer_wraper {
 	display: flex;
 	flex-wrap: wrap;
-	justify-content: space-between;
-	padding: var(--gutters);
+    gap:1rem;
+    padding-top: 1rem;
+    padding-bottom: 3rem;
 }
 /* ---- Footer sections */
 
 footer section {
-	padding: 2rem 0;
-	width: 33%;
+    flex: 1 1 300px;
 }
 footer section ul li {
-	margin: 1rem 0;
+	margin: 0.8rem 0;
+}
+footer a {
+    white-space: nowrap;
 }
 footer section ul li a:hover {
-    color: var(--primary_color);
+	color: var(--primary_color);
 }
-
-
 
 /* ------------------ MEDIA QUERY */
 
 /* -------------- MOBILE */
 
 @media screen and (max-width: 767px) {
-    :root {
-        --gutters: 0 0 0 0;
+
+	/* font size - mobile */
+	h1,
+	h2 {
+		font-size: 1.4rem;
+	}
+	.filters ul li button {
+		font-size: 1rem;
+	}
+
+    .main_header,
+    main,
+    .footer_wraper {
+        padding:0;
+    }
+	/* ------------ HEADER - mobile  */
+	.main_header {
+		height: 130px;
+		flex-wrap: wrap;
+	}
+
+	/* logo Reservia - mobile */
+
+	.logo {
+		padding: 1rem;
+	}
+
+	/* Navigation - mobile */
+
+	.main_header nav {
+		order: 3;
+		width: 100%;
+	}
+	.suscribe {
+		width: auto;
+		order: 2;
+		padding: 1rem;
+	}
+	.main_header nav ul li {
+		width: 100%;
+	}
+	.main_header nav ul li {
+		border-top: none;
+		border-bottom: 3px solid;
+	}
+	.main_header > nav ul li:first-child {
+		border-color: var(--primary_color);
+	}
+	.main_header > nav ul li:last-child {
+		border-color: var(--third_color);
+	}
+	.main_header nav ul li:first-child a {
+		color: var(--primary_color);
+	}
+	.main_header a {
+		align-self: stretch; /* to expend the clickable area */
+		width: inherit; /* to expend the clickable area */
+		text-align: center;
+	}
+
+	/* ------------ MAIN - mobile  */
+    main {
+       gap:0;
     }
 
-    /* font size - mobile */
-    h1,
-    h2 {
-        font-size: 1.4rem;
-    }
-    .filters ul li button {
-        font-size: 1rem;
-    }
-    /* ------------ HEADER - mobile  */
+	/* ---- SECTION Search & Filters  - mobile  */
 
-    .main_header {
-        height: 135px;
-        flex-wrap: wrap;
-    }
-    /* logo Reservia - mobile */
+ 	.search_filter {
+		padding: 1.2rem;
+	}
+	/* search - mobile*/
 
-    .logo {
-        padding:1rem;
+    form {
+        align-self: stretch;
     }
-
-    /* Navigation - mobile */
-
-    .main_header nav {
-        order:3;
-        width: 100%;
-    }
-    .suscribe {
-        width: auto;
-        order:2;
-        padding:1rem;
-    }
-    .main_header nav ul li {
-        width: 100%;
-    }
-    .main_header nav ul li:first-child {
-        border-bottom: 2px solid var(--primary_color);
-    }
-    .main_header nav ul li:first-child a {
-        color: var(--primary_color);
-    }
-
-/* ------------ MAIN - mobile  */
-
-/* ---- SECTION Search & Filters  - mobile  */
-
-    .search_filter {
-        margin: 0 1rem 0 1rem;
-    }
-
-    /* search - mobile*/
-
+	.search {
+		width: 100%;
+	}
     .search input {
+        flex:2;
+    }
+	.search button {
+		font-size: 0; /* make the txt "recherche" disappear */
+		overflow: hidden;
+		color: transparent;
+        border-radius: 16px;
+	}
+	.search button:after {
+		content: "\f002";
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		font-size: 1rem;
+		font-style: normal;
+		font-variant: normal;
+		font-family: "Font Awesome 5 Free";
+		font-weight: 900;
+		text-rendering: auto;
+		color: white;
+	}
+
+	/* -- Filters - mobile */
+
+	.filters {
+		flex-direction: column;
+		gap: 0;
+        padding:0;
+	}
+	.filters ul {
+		gap: 0.8rem;
+	}
+
+	/* info - mobile */
+
+	.info::before {
+		align-self: flex-start;
+	}
+
+	/* ---- ARTICLE Lodgins - mobile */
+
+    #lodgings {
+        gap:0;
+    }
+	.main_lodgings,
+	.popular_lodgings {
         width: 100%;
+		padding: 2.5rem 1.25rem;
+		border-radius: 0;
+	}
+
+    /* Stars - mobile*/
+
+    #lodgings i {
+        font-size: 0.8rem;
     }
-    .search button {
-        font-size: 0; /* make the txt "recherche" disapear */
-        overflow: hidden;
-        color: transparent;
-        border-radius: 15px;
+
+	/* -- Aside Popular lodgings - mobile */
+
+ 	.popular_lodgings {
+		padding:
+	}
+    .popular_lodgings ul {
+        gap: 1rem;
+        width: auto;
     }
-    .search button:after {
-        content: "\f002";
+
+    /* popular card - mobile */
+
+    .popular_card {
+        height: 9rem;
+    }
+	.popular_card div {
+		font-size: 14px;
+		/* padding: 1rem; */
+	}
+
+    /* Main lodgings - mobile */
+
+    .main_lodgings {
+        background-color: white;
+    }
+    .main_lodgings ul {
         display: flex;
-        justify-content: center;
-        align-items: center;
-        font-size: 1rem;
-        font-style: normal;
-        font-variant: normal;
-        font-family: "Font Awesome 5 Free";
-        font-weight: 900;
-        text-rendering: auto;
-        color: white;
-    }
-
-    /* -- Filters - mobile */
-
-    .filters {
         flex-direction: column;
+        gap:1rem;
     }
 
-    /* ---- ARTICLE Lodgins - mobile */
+    /* main lodging card */
 
-    .main_lodgings header h2,
-    .popular_lodgings h2 {
-        margin-bottom: 2rem;
+    .lodging_card {
+        height: 12.2rem;;
     }
-    .main_lodgings,
-    .popular_lodgings {
-        padding:  2.5rem 1rem;
-        border-radius: 0;
+    .lodging_card img {
+        height: 9rem ;
     }
-    /* -- Aside Popular lodgings - mobile */
-    .popular_card div {
+    .lodging_card div  {
         font-size: 14px;
-        padding:1rem;
     }
-    
-    /* ARTICLE Activities - mobile*/
 
-    .activities_list {
-        display: flex;
-        flex-direction: column;
-    } 
+	/* ARTICLE Activities - mobile*/
+
+    #activities {
+        margin:0 1rem 3rem 1rem;
+        padding:0;
+    }
+	.activities_list {
+		display: flex;
+		flex-direction: column;
+        gap: 1rem;
+	}
+    .activities_list li:nth-child(3),
+    .activities_list li:nth-child(5) {
+        margin: 0;
+    }
+    .activities_card {
+        height: 12rem;
+    }
+    .activities_card figcaption h3 {
+        padding: 1rem;
+    }
+
+    /* Footer - mobile */
+
+    footer {
+        padding: 1.25rem;
+    }
 }
