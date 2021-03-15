@@ -75,7 +75,6 @@ main,
 	padding: 0 3.5rem;
 }
 
-
 /* ----------------- HEADER */
 
 .main_header {
@@ -320,6 +319,12 @@ form {
 .popular_card div span {
 	font-size: 0.8rem;
 }
+/* round borders of the cards inside */
+.lodging_card,
+.popular_card {
+	border-radius: 17px;
+	overflow: hidden;
+}
 
 /* --- Main Lodgings */
 
@@ -334,8 +339,6 @@ form {
 	gap: 2rem;
 }
 .main_lodgings ul li a {
-	border-radius: 17px;
-	overflow: hidden;
 	height: 100%;
 }
 
@@ -417,7 +420,7 @@ form {
 	margin-top: auto;
 }
 .popular_card img {
-	border-radius: 20px 0 0 20px;
+	/* border-radius: 20px 0 0 20px; */
 	width: 8rem;
 }
 
@@ -470,7 +473,7 @@ form {
 .activities_card {
 	display: flex;
 	flex-direction: column;
-	border-radius: 25px;
+	border-radius: 20px;
 	overflow: hidden;
 	height: 100%;
 	box-shadow: 0px 2px 8px 3px rgba(0, 0, 0, 0.08);
@@ -519,7 +522,6 @@ footer section ul li a:hover {
 	color: var(--primary_color);
 }
 
-
 /* ------------------ MEDIA QUERY ------------------ */
 
 /* -------------- for responsive ACTIVITIES */
@@ -527,7 +529,7 @@ footer section ul li a:hover {
 @media screen and (max-width: 1210px) {
 	.activities_list {
 		display: grid;
-		grid-template-columns: repeat(3, minmax(12rem, 1fr));
+		grid-template-columns: repeat(3, minmax(11rem, 1fr));
 		grid-template-rows: repeat(2, 12rem) 20.25rem;
 		column-gap: 3%;
 	}
@@ -555,12 +557,10 @@ footer section ul li a:hover {
 	}
 }
 
-
 /* -------------- TABLET  vertical*/
 
 @media screen and (max-width: 768px) and (min-width: 481px) {
-
-    /* gutters for all page - tablet */
+	/* gutters for all page - tablet */
 
 	main {
 		padding: 0;
@@ -571,9 +571,9 @@ footer section ul li a:hover {
 		padding: 0 3rem;
 	}
 
-    /* ----------------- HEADER - tablet */
+	/* ----------------- HEADER - tablet */
 
-    /* Navigation - tablet */
+	/* Navigation - tablet */
 
 	.main_header nav ul li,
 	.suscribe {
@@ -581,61 +581,77 @@ footer section ul li a:hover {
 		padding: 1.2rem;
 	}
 
-    /* ----------------- MAIN - tablet*/
+	/* ----------------- MAIN - tablet */
 
-    /* --- Filter Section - tablet*/
+	/* --- Filter Section - tablet */
 
 	.filters ul {
 		gap: 1rem;
 	}
 
-    /* --- Main Lodgings */
+	/* -------- ARTICLE Lodgins - tablet */
+
+	#lodgings {
+		gap: 0;
+		width: 100%;
+	}
+
+	/* --- Main Lodgings - tablet */
 
 	.main_lodgings {
+		flex: 1.5;
+		min-width: auto;
+		background-color: white;
+	}
+
+	/* --- Aside : Popular lodgings - tablet */
+
+	.popular_lodgings {
+		flex: 1;
+		align-self: flex-end; /* end because for the wrap-reverse */
 		border-radius: 0;
 	}
-    
-    /* --- Aside : Popular lodgings - tablet */
-
-    .popular_lodgings {
-		margin: 0 3rem;
+	.popular_lodgings ul {
+		width: auto;
+		min-width: 15rem;
 	}
-    
-    /* ---- ARTICLE Activities - tablet */
+	.popular_card img {
+		min-width: 5.5rem;
+	}
 
-    /* Layout activities - tablet */
+	/* ---- ARTICLE Activities - tablet */
 
-    .activities_list {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        grid-template-rows: repeat(2, 12rem) 20.25rem;
-        column-gap: 3%;
-    }
-    .activities_list li:first-child {
-        grid-column: span 2;
-    }
-    /* 2th and 3rd activities - tablet */
-    .activities_list li:nth-child(2),
-    .activities_list li:nth-child(3) {
-        grid-column: 3/4;
-    }
-    /* 4th activity - tablet */
-    .activities_list li:nth-child(4) {
+	/* Layout activities - tablet */
+
+	.activities_list {
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+		grid-template-rows: repeat(2, 12rem) 20.25rem;
+		column-gap: 3%;
+	}
+	.activities_list li:first-child {
+		grid-column: span 2;
+	}
+	/* 2th and 3rd activities - tablet */
+	.activities_list li:nth-child(2),
+	.activities_list li:nth-child(3) {
+		grid-column: 3/4;
+	}
+	/* 4th activity - tablet */
+	.activities_list li:nth-child(4) {
 		margin: 0;
 		margin-top: 2rem; /* row gap */
 		grid-row: 3 / 4;
 	}
-    /* 6th activity - tablet */
+	/* 6th activity - tablet */
 	.activities_list li:nth-child(6) {
 		grid-column: 3 / 4;
 	}
 }
 
-
 /* -------------- MOBILE */
 
 @media screen and (max-width: 480px) {
-
 	/* font size - mobile */
 
 	h1,
@@ -646,7 +662,7 @@ footer section ul li a:hover {
 		font-size: 1rem;
 	}
 
-    /* size and gutters for all page - mobile*/
+	/* size and gutters for all page - mobile*/
 
 	.main_header,
 	main,
@@ -700,7 +716,7 @@ footer section ul li a:hover {
 		text-align: center;
 	}
 
-    /* ----------------- MAIN - mobile */
+	/* ----------------- MAIN - mobile */
 
 	main {
 		gap: 0;
@@ -795,7 +811,7 @@ footer section ul li a:hover {
 		font-size: 14px;
 	}
 
-    /* --- Aside : Popular lodgings - mobile */
+	/* --- Aside : Popular lodgings - mobile */
 
 	.popular_lodgings ul {
 		gap: 1rem;
@@ -811,7 +827,7 @@ footer section ul li a:hover {
 		font-size: 14px;
 	}
 
-    /* Stars - mobile*/
+	/* Stars - mobile*/
 
 	#lodgings i {
 		font-size: 0.8rem;
@@ -824,20 +840,20 @@ footer section ul li a:hover {
 		padding: 0;
 	}
 
-    /* Layout activities - mobile */
+	/* Layout activities - mobile */
 
 	.activities_list {
 		display: flex;
 		flex-direction: column;
 		gap: 1rem;
 	}
-    /* 3 & 5 ...activities - mobile */
+	/* 3 & 5 ...activities - mobile */
 	.activities_list li:nth-child(3),
 	.activities_list li:nth-child(5) {
 		margin: 0;
 	}
 
-    /* -- Activity card - mobile */
+	/* -- Activity card - mobile */
 
 	.activities_card {
 		height: 12rem;
