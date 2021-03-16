@@ -65,6 +65,20 @@ img {
 	max-height: 100%;
 }
 
+/* font Awesome pseudo-element icons */
+.filters ul li button::before,
+.info::before,
+.popular_lodgings h2::after {
+    display: flex;
+	justify-content: center;
+	align-items: center;
+	font-family: "Font Awesome 5 Free";
+	font-style: normal; /* fontawesome recommendation */
+	font-variant: normal; /* fontawesome recommendation */
+	text-rendering: auto; /* fontawesome recommendation */
+    font-weight: 900;
+}
+
 /* size and gutters for all page */
 
 .main_header,
@@ -196,7 +210,8 @@ form {
 	display: flex;
 	flex-wrap: wrap;
 	align-self: center;
-	gap: 2rem;
+	column-gap: 2rem;
+	row-gap: 1rem;
 }
 .filters ul li {
 	position: relative; /* in order to put the icon over the border of the button */
@@ -221,21 +236,6 @@ form {
 	transition: all 0.2s ease-out;
 }
 
-/* -- info */
-
-.info {
-	display: flex;
-	align-items: center;
-	gap: 0.8rem;
-}
-.info::before {
-	content: "\f129";
-	font-size: 0.7rem;
-	color: var(--primary_color);
-	border: 1px solid var(--fourth_color);
-	width: 1.438rem;
-	height: 1.438rem;
-}
 
 /* Icons filter */
 
@@ -251,26 +251,34 @@ form {
 .animal_allowed::before {
 	content: "\f6d3";
 }
-.filters ul li button::before,
-.info::before {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	font-family: "Font Awesome 5 Free";
-	font-style: normal; /* fontawesome recommendation */
-	font-variant: normal; /* fontawesome recommendation */
-	text-rendering: auto; /* fontawesome recommendation */
-	font-weight: 900;
-	border-radius: 50%;
-}
 .filters ul li button::before {
 	position: absolute; /* in order to put the icon over the border of the button */
 	left: 0;
 	top: 0;
 	width: 3.125rem;
 	height: 3.125rem;
-	color: var(--primary_color);
 	background-color: var(--secondary_color);
+}
+/* icons filters & info icon */
+.filters ul li button::before,
+.info::before {
+    color: var(--primary_color);
+	border-radius: 50%;
+}
+
+/* -- info */
+
+.info {
+	display: flex;
+	align-items: center;
+	gap: 0.8rem;
+}
+.info::before {
+	content: "\f129";
+	font-size: 0.7rem;
+	border: 1px solid var(--fourth_color);
+	width: 1.438rem;
+	height: 1.438rem;
 }
 
 /* -------- ARTICLE Lodgins */
@@ -330,7 +338,6 @@ form {
 
 .main_lodgings {
 	flex: 3;
-	min-width: 50%;
 }
 .main_lodgings ul {
 	display: grid;
@@ -379,28 +386,31 @@ form {
 .popular_lodgings {
 	display: flex;
 	flex-direction: column;
+	flex: 1;
+	min-width: 15rem;
 }
 .popular_lodgings h2 {
 	display: flex;
 }
-
 .popular_lodgings ul {
 	display: flex;
 	flex-direction: column;
 	gap: 2rem;
-	width: 21rem;
+}
+.popular_card img {
+    min-width: 5.5rem;
 }
 
 /* Popular Icon */
 
 .popular_lodgings h2::after {
 	content: "\f201";
-	display: block;
+/* 	display: block;
 	font-style: normal;
 	font-variant: normal;
 	font-family: "Font Awesome 5 Free";
 	font-weight: 900;
-	text-rendering: auto;
+	text-rendering: auto;*/
 	margin-left: auto;
 }
 
@@ -415,13 +425,15 @@ form {
 .popular_card div {
 	display: flex;
 	flex-direction: column;
+	flex: 1.5;
 }
 .popular_card div span {
 	margin-top: auto;
 }
 .popular_card img {
-	/* border-radius: 20px 0 0 20px; */
-	width: 8rem;
+	min-height: 0;
+	min-width: 0;
+	flex: 1;
 }
 
 /* Stars */
@@ -559,7 +571,7 @@ footer section ul li a:hover {
 
 /* -------------- TABLET  vertical*/
 
-@media screen and (max-width: 768px) and (min-width: 481px) {
+@media screen and (max-width: 837px) and (min-width: 481px) {
 	/* gutters for all page - tablet */
 
 	main {
@@ -583,12 +595,6 @@ footer section ul li a:hover {
 
 	/* ----------------- MAIN - tablet */
 
-	/* --- Filter Section - tablet */
-
-	.filters ul {
-		gap: 1rem;
-	}
-
 	/* -------- ARTICLE Lodgins - tablet */
 
 	#lodgings {
@@ -600,23 +606,17 @@ footer section ul li a:hover {
 
 	.main_lodgings {
 		flex: 1.5;
-		min-width: auto;
 		background-color: white;
 	}
 
 	/* --- Aside : Popular lodgings - tablet */
 
 	.popular_lodgings {
-		flex: 1;
 		align-self: flex-end; /* end because for the wrap-reverse */
 		border-radius: 0;
 	}
 	.popular_lodgings ul {
 		width: auto;
-		min-width: 15rem;
-	}
-	.popular_card img {
-		min-width: 5.5rem;
 	}
 
 	/* ---- ARTICLE Activities - tablet */
