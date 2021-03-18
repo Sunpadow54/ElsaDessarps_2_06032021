@@ -292,6 +292,7 @@ form {
 	border: 1px solid var(--fourth_color);
 	width: 1.438rem;
 	height: 1.438rem;
+    flex: 0 0 auto; /* fix the round shape when resizing */
 }
 
 /* -------- ARTICLE Lodgins */
