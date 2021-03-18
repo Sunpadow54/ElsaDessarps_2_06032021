@@ -350,7 +350,7 @@ form {
 /* --- Main Lodgings */
 
 .main_lodgings {
-	flex: 3;
+	flex: 2.4;
 }
 .main_lodgings ul {
 	display: grid;
@@ -605,15 +605,15 @@ footer section ul li a:hover {
 	/* -------- ARTICLE Lodgins - tablet */
 
 	#lodgings {
-		gap: 0;
-		width: 100%;
+		/* gap: 0;
+		width: 100%; */
 	}
 
 	/* --- Main Lodgings - tablet */
 
 	.main_lodgings {
-		flex: 1.5;
-		background-color: white;
+		flex: auto;
+		/* background-color: white; */
 	}
 
 	/* --- Aside : Popular lodgings - tablet */
@@ -733,6 +733,7 @@ footer section ul li a:hover {
 
 	.search_filter {
 		padding: 1.2rem;
+        margin-bottom:1.7rem;
 	}
 
 	/* --- Search Form - mobile */
