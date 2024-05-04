@@ -27,4 +27,4 @@ Html / Css
 * VSCode
 
 ### Auteur
-Sunpadown / elsa dessarps
+Sunpadown
